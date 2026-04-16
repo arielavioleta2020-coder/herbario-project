@@ -1,0 +1,59 @@
+/* --- ESTILOS DE NAVEGACIÓN (TUS ORIGINALES) --- */
+.navbar {
+    display: flex;
+    align-items: center;
+    height: 80px;
+    background-color: #fff;
+}
+
+.logo-container {
+    background-color: #d4e157; 
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 40px;
+    min-width: 250px;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+    margin-left: 10px;
+}
+
+.brand-name { font-weight: 700; font-size: 1.2rem; }
+.brand-sub { font-weight: 400; }
+
+.nav-links {
+    flex-grow: 1;
+    display: flex;
+    gap: 30px;
+    padding-left: 40px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+}
+
+/* --- ESTILOS REDES SOCIALES (LO NUEVO) --- */
+.nav-socials {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding-right: 40px;
+}
+
+.nav-socials a {
+    color: #333;
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.nav-socials a:hover {
+    color: #d4e157;
+    transform: scale(1.1);
+}
