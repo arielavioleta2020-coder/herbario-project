@@ -1,13 +1,7 @@
-// Importamos los productos directamente del archivo local
-import { productos } from '../data/productosCompletos';
+import { productos } from '../data/productosCompletos.js';
 
 export const getProductos = async () => {
-  try {
-    // Ya no usamos el fetch a la base de datos (localhost:3001)
-    // Simplemente devolvemos los productos del archivo .js
+    // Forzamos el retorno de los datos locales sin pasar por ningún fetch
+    console.log("Cargando productos desde el archivo local...");
     return productos;
-  } catch (error) {
-    console.error("Error al cargar productos locales:", error);
-    return [];
-  }
 };

@@ -1,17 +1,25 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import React from 'react';
+// IMPORTANTE: Importamos la función que lee el archivo local
+import { getProductos } from '../services/api';
 
 function Medicamentos() {
   const [productos, setProductos] = useState([]);
   const [busqueda, setBusqueda] = useState('');
 
-  // TRAER DATOS DE LA BASE DE DATOS
+  // TRAER DATOS DEL ARCHIVO LOCAL (Ya no de localhost:3001)
   useEffect(() => {
-    fetch('http://localhost:3001/api/productos')
-      .then(res => res.json())
-      .then(data => setProductos(data))
-      .catch(err => console.error("Error en la API:", err));
+    const cargarProductos = async () => {
+      try {
+        const data = await getProductos();
+        setProductos(data);
+      } catch (err) {
+        console.error("Error al cargar productos locales:", err);
+      }
+    };
+    
+    cargarProductos();
   }, []);
 
   const productosFiltrados = productos.filter(producto =>
