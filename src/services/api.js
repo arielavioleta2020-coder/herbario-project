@@ -1,11 +1,13 @@
-// src/services/api.js
+// Importamos los productos directamente del archivo local
+import { productos } from '../data/productosCompletos';
+
 export const getProductos = async () => {
   try {
-    const response = await fetch('http://localhost:3001/api/productos');
-    const data = await response.json();
-    return data;
+    // Ya no usamos el fetch a la base de datos (localhost:3001)
+    // Simplemente devolvemos los productos del archivo .js
+    return productos;
   } catch (error) {
-    console.error("Error al traer productos:", error);
+    console.error("Error al cargar productos locales:", error);
     return [];
   }
 };
