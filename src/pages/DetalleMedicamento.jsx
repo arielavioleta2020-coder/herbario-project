@@ -53,11 +53,10 @@ function DetalleMedicinas() {
 
   // Lógica de limpieza de rutas de imagen
   let imagenLimpia = planta.imagen ? planta.imagen.trim() : "";
-  // Nos aseguramos de que empiece con / para que la ruta sea absoluta
   const rutaFinal = imagenLimpia.startsWith("/") ? imagenLimpia : `/${imagenLimpia}`;
 
   const mensajeWA = `Hola, deseo más información sobre: ${planta.nombre}`;
-  const urlWhatsApp = `https://wa.me/593999999999?text=${encodeURIComponent(mensajeWA)}`;
+  const urlWhatsApp = `https://wa.me/593939736066?text=${encodeURIComponent(mensajeWA)}`;
 
   return (
     <div
@@ -115,11 +114,33 @@ function DetalleMedicinas() {
           </p>
 
           <h3 style={{ color: "#2e4d23", marginTop: "20px" }}>Precio:</h3>
-          <p style={{ fontSize: "1.5rem", fontWeight: "bold", color: "#a3c038" }}>
+          <p style={{ fontSize: "1.5rem", fontWeight: "bold", color: "#a3c038", marginBottom: "10px" }}>
             ${Number(planta.precio || 0).toFixed(2)}
           </p>
 
-          <div style={{ marginTop: "40px" }}>
+          {/* --- BLOQUE DE ENTREGA A DOMICILIO --- */}
+          <div style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "10px",
+            backgroundColor: "#f4f9e1",
+            padding: "12px 20px",
+            borderRadius: "12px",
+            border: "1px dashed #a3c038",
+            margin: "25px 0"
+          }}>
+            <span style={{ fontSize: "1.5rem" }}>🛵</span>
+            <div>
+              <p style={{ margin: 0, fontWeight: "bold", color: "#2e4d23", fontSize: "0.95rem" }}>
+                Entrega a domicilio disponible
+              </p>
+              <p style={{ margin: 0, color: "#666", fontSize: "0.85rem" }}>
+                Recibe tu pedido en la puerta de tu casa en Quito.
+              </p>
+            </div>
+          </div>
+
+          <div style={{ marginTop: "20px" }}>
             <a
               href={urlWhatsApp}
               target="_blank"
